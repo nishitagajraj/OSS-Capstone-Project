@@ -39,3 +39,11 @@ grep -i "$KEYWORD" "$LOGFILE" | tail -5
 echo "=============================================="
 EOF
 bash script4.sh /var/log/syslog error
+cat > test.log << 'EOF'
+2026-03-28 10:02:11 ERROR failed to load module libssl
+2026-03-28 10:04:22 ERROR connection timeout on port 443
+2026-03-28 10:06:33 ERROR permission denied /var/lib/apt
+2026-03-28 10:09:12 ERROR segmentation fault in process 4821
+2026-03-28 10:12:05 ERROR failed to write to /var/log/audit.log
+EOF
+bash script4.sh test.log error
